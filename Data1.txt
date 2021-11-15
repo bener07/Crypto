@@ -1,0 +1,37 @@
+{
+'Response': 'Success',
+ 'Message': '',
+ 'HasWarning': False,
+ 'Type': 100,
+ 'RateLimit': {
+}
+,
+ 'Data': {
+ 'Aggregated': False,
+ 'TimeFrom': 1636848000,
+ 'TimeTo': 1636934400,
+ 'Data': [
+{
+'time': 1636848000,
+ 'high': 65509.06,
+ 'low': 63616.33,
+ 'open': 64409.56,
+ 'volumefrom': 14680.72,
+ 'volumeto': 947303706.23,
+ 'close': 65509.06,
+ 'conversionType': 'direct',
+ 'conversionSymbol': ''}
+,
+ {
+'time': 1636934400,
+ 'high': 66188.84,
+ 'low': 65301.59,
+ 'open': 65509.06,
+ 'volumefrom': 6443.82,
+ 'volumeto': 424021992.6,
+ 'close': 65303.35,
+ 'conversionType': 'direct',
+ 'conversionSymbol': ''}
+]
+}
+}
