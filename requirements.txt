@@ -1,5 +1,0 @@
-pyttsx3~=2.90
-pyjokes~=0.6.0
-setuptools~=57.1.0
-spotipy~=2.18.0
-SpeechRecognition<=3.8.1
