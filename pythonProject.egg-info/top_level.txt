@@ -1,0 +1,6 @@
+pyaudio
+pyjokes
+pyttsx3
+speech_recognition
+spotipy
+time

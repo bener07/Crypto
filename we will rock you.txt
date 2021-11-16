@@ -1,0 +1,34 @@
+{'tracks': {'href': 'https://api.spotify.com/v1/search?query=we+will+rock+you&type=track&offset=0&limit=1',
+'items':
+
+[{'album': {'album_type': 'album', 'artists': [{'external_urls':
+{'spotify': 'https://open.spotify.com/artist/1dfeR4HaWDbWqFHLkxsg1d'},
+'href': 'https://api.spotify.com/v1/artists/1dfeR4HaWDbWqFHLkxsg1d',
+'id': '1dfeR4HaWDbWqFHLkxsg1d',
+'name': 'Queen', 'type': 'artist',
+'uri': 'spotify:artist:1dfeR4HaWDbWqFHLkxsg1d'}],
+'available_markets': ['CA', 'US'], 'external_urls':
+ {'spotify': 'https://open.spotify.com/album/6Di4m5k1BtMJ0R44bWNutu'},
+'href': 'https://api.spotify.com/v1/albums/6Di4m5k1BtMJ0R44bWNutu',
+'id': '6Di4m5k1BtMJ0R44bWNutu', 'images': [{'height': 640,
+'url': 'https://i.scdn.co/image/ab67616d0000b27393c65b02f4a72cd6eccf446d', 'width': 640}, {'height': 300,
+'url': 'https://i.scdn.co/image/ab67616d00001e0293c65b02f4a72cd6eccf446d', 'width': 300}, {'height': 64,
+'url': 'https://i.scdn.co/image/ab67616d0000485193c65b02f4a72cd6eccf446d',
+ 'width': 64}], 'name': 'News Of The World (Deluxe Remastered Version)',
+'release_date': '1977-10-28', 'release_date_precision': 'day', 'total_tracks': 16,
+'type': 'album', 'uri': 'spotify:album:6Di4m5k1BtMJ0R44bWNutu'}, 'artists':
+[{'external_urls': {'spotify': 'https://open.spotify.com/artist/1dfeR4HaWDbWqFHLkxsg1d'},
+'href': 'https://api.spotify.com/v1/artists/1dfeR4HaWDbWqFHLkxsg1d',
+'id': '1dfeR4HaWDbWqFHLkxsg1d', 'name': 'Queen',
+'type': 'artist', 'uri': 'spotify:artist:1dfeR4HaWDbWqFHLkxsg1d'}],
+'available_markets': ['CA', 'US'], 'disc_number': 1,
+'duration_ms': 122066, 'explicit': False,
+'external_ids': {'isrc': 'GBUM71029618'}, 'external_urls':
+{'spotify': 'https://open.spotify.com/track/54flyrjcdnQdco7300avMJ'},
+'href': 'https://api.spotify.com/v1/tracks/54flyrjcdnQdco7300avMJ',
+'id': '54flyrjcdnQdco7300avMJ',
+'is_local': False, 'name': 'We Will Rock You - Remastered 2011',
+'popularity': 70, 'preview_url': None, 'track_number': 1,
+'type': 'track', 'uri': 'spotify:track:54flyrjcdnQdco7300avMJ'}], 'limit': 1,
+'next': 'https://api.spotify.com/v1/search?query=we+will+rock+you&type=track&offset=1&limit=1',
+'offset': 0, 'previous': None, 'total': 2744}}
