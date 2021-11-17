@@ -27,17 +27,16 @@ class crypto:
         self.api_key = api_key
         self.tmp = time
 
+    # url = f'https://min-api.cryptocompare.com/data/v2/histoday?fsym={self.sym}&tsym={self.exc}&limit={
+    # self.tmp}&api_key={self.api_key}'
+
     def price(self):
-        url = f'https://min-api.cryptocompare.com/data/v2/histoday?fsym={self.sym}&tsym={self.exc}&limit={self.tmp}&api_key={self.api_key}'
+        url = f'https://min-api.cryptocompare.com/data/price?fsym={self.sym}&tsyms={self.exc}'
         r = requests.get(url).json()
-        # response = {
-        #   'CoinName': r['Data'][self.sym]['CoinInfo']['Name'],
-        #   'CoinFullName': r['Data'][self.sym]['CoinInfo']['FullName'],
-        #   'CoinInfoURL': r['Data'][self.sym]['CoinInfo']['Url'],
-        #   'RewardForEveryBlock': (r['Data'][self.sym]['CoinInfo']['BlockReward'], self.sym),
-        # }
-        return str(r).replace(',', ',\n').replace('{', '{\n').replace('}', '}\n').replace('[', '[\n').replace(']',
-                                                                                                              ']\n')
+        response = {
+            "Price": r[self.exc]
+        }
+        return f"""{self.sym} has a Price of {response['Price']} {self.exc}"""
 
     def blockchain_data(self):
         pass
@@ -51,11 +50,17 @@ class crypto:
             'CoinInfoURL': r['Data'][self.sym]['CoinInfo']['Url'],
             'RewardForEveryBlock': (r['Data'][self.sym]['CoinInfo']['BlockReward'], self.sym),
         }
-        return str(r).replace(',', ',\n').replace('{', '{\n').replace('}', '}\n').replace('[', '[\n').replace(']',
-                                                                                                              ']\n')
-#        return f"""
-#    Coin Name: {response['CoinName']}
-#    Coin Full Name: {response['CoinFullName']}
-#    Reward per block added: {response['RewardForEveryBlock']}
-#    More info on: https://www.cryptocompare.com{response['CoinInfoURL']}
-#        """
+#        return str(r).replace(',', ',\n').replace('{', '{\n').replace('}', '}\n').replace('[', '[\n').replace(']',
+#                                                                                                              ']\n')
+        return f"""
+    Coin Name: {response['CoinName']}
+    Coin Full Name: {response['CoinFullName']}
+    Reward per block added: {response['RewardForEveryBlock']}
+    More info on: https://www.cryptocompare.com{response['CoinInfoURL']}
+        """
+
+    def social(self):
+        url = f'https://min-api.cryptocompare.com/data/social/coin/latest?api_key={self.api_key}'
+        r = requests.get(url).json()
+
+        return str(r).replace(',', ',\n').replace('{', '{\n').replace('[', '[\n')
