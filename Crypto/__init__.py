@@ -62,5 +62,19 @@ class crypto:
     def social(self):
         url = f'https://min-api.cryptocompare.com/data/social/coin/latest?api_key={self.api_key}'
         r = requests.get(url).json()
+        response ={
+            'General': r['Data']['General'],
+            'CryptoCompare': r['Data']['CryptoCompare'],
+            'Twitter': r['Data']['Twitter'],
+            'Reddit': r['Data']['Reddit'],
+            'Facebook': r['Data']['Facebook'],
+            'Code': r['Data']['CodeRepository']['List'],
+        }
+#        return str(response).replace(',', ',\n').replace('{', '{\n').replace('}', '}\n').replace('[', '[\n')
+        return f"""
+General info: 
+      - Points: {response['General']['Points']};
+      - Name: {response['General']['Name']};
+      - Coin Name: {response['General']['CoinName']};
 
         return str(r).replace(',', ',\n').replace('{', '{\n').replace('[', '[\n')
