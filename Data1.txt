@@ -1,0 +1,34 @@
+General info: 
+      - Points: 14852878;
+      - Name: BTC;
+      - Coin Name: Bitcoin;
+
+CryptoCompare:
+      - Points: 10976110;
+      - Followers: 99630;
+      - Number of Posts: 146582;
+      - Number of Comments: 482081;
+      - Number of Markets: 1696971;
+      - Number of Trades: 861835;
+      - Number of Charts: 10879028;
+      - Number of Analysis: 1195225;
+      - Number of News: 308866;
+
+Twitter:
+      - Points: 91055;
+      - Followers: 844049;
+      - Statuses: 20316;
+      - Points: 165;
+      
+Reddit:
+      - Points: 3611674;
+      - Posts per hour: 5.73;
+      - Comments per hour: 292.92;
+      - Comments per day: 7030.11;
+      - Active users: 5987;
+      - Posts per day: 137.58;
+      - Subscribers number: 3579653;
+
+Facebook:
+      - Points: 39654;
+      - Likes: 39654;

@@ -3,32 +3,20 @@ import json
 
 
 class crypto:
-    """
-    Crypto python package using:
-        Crypto-Compare API
-        Examples:
-             crypto(api_key, "BTC", "USD", "2")
-             api_key        -The API key from your account.
-             "BTC"          -The type of the coin you want to get information from. Here is the BTC meaning the Bitcoin crypto coin.
-             "USD"          -The coin that you want to convert the crypto to. Example: From 'BTC'(bitcoins) to 'USD'(dollars). Default is USD
-             "2"            -The time you want to get the currency. Default is 1.0
-
-        after defining the object you just need to do the request using:
-            Example:
-                cr = crypto(api_key, "BTC", "USD")
-                cr.price()              -This will show the price of the coin that you set in the object.
-                cr.blockchain_data()    -This will return the blockchain data available from te crypto-compare API
-            More features will be added later.
-    """
-
-    def __init__(self, api_key, symbol, exchange="USD", time="1", code=False):
+    def __init__(self, api_key, symbol, exchange="USD", limit="2", code=False):
         self.sym = symbol
         self.exc = exchange
         self.api_key = api_key
-        self.tmp = time
+        self.limit = limit
         self.code = code
 
     def price(self):
+        """
+        Price function is used to return the price of a certain coin to another kind of real life money 
+        EX:
+            BTC -- USD :is going to return the value of bitcoin in USD dollars.
+        :return: 
+        """
         url = f'https://min-api.cryptocompare.com/data/price?fsym={self.sym}&tsyms={self.exc}'
         r = requests.get(url).json()
         response = {
@@ -36,10 +24,16 @@ class crypto:
         }
         return f"""{self.sym} has a Price of {response['Price']} {self.exc}"""
 
-    def blockchain_data(self):
-        pass
-
+    def topBy24HRS(self):
+        url = f'https://min-api.cryptocompare.com/data/top/totaltoptiervolfull?limit={self.limit}&tsym={self.exc}'
+        r = requests.get(url).json()
+        return str(r).replace(',', ',\n').replace('{', '{\n').replace('[', '[\n')
     def mining_currency(self):
+        """
+        Mining currency function is a simple requests to the api from CryptoCompare that then returns
+        a simple and readable output for the user. 
+        :return: 
+        """
         url = f'https://min-api.cryptocompare.com/data/blockchain/mining/calculator?fsyms={self.sym}&tsyms={self.exc}&api_key={self.api_key}'
         r = requests.get(url).json()
         response = {
@@ -56,6 +50,12 @@ class crypto:
         """
 
     def social(self):
+        """
+        The social Function is to a simple requests to the CryptoCompare API that then returns a huje amount of information
+        about the social media, and of course that information has info about the crypto coin currency or something like that
+        i didn't desenvolve it to much
+        :return: 
+        """
         url = f'https://min-api.cryptocompare.com/data/social/coin/latest?api_key={self.api_key}'
         r = requests.get(url).json()
         response = {
@@ -102,7 +102,8 @@ Facebook:
       - Likes: {response['Facebook']['likes']};"""
 
         if self.code is True:
-            return data + (f"\n\nCode Stuff that you might want to look at (this is all in a JSON form from the raw api "
-                             f"request):\n \n{response['Code']}").replace(',', ',\n').replace('{', '{\n')
+            return data + (
+                f"\n\nCode Stuff that you might want to look at (this is all in a JSON form from the raw api "
+                f"request):\n \n{response['Code']}").replace(',', ',\n').replace('{', '{\n')
         else:
             return data
