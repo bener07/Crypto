@@ -76,4 +76,32 @@ class crypto:
       - Name: {response['General']['Name']};
       - Coin Name: {response['General']['CoinName']};
 
-        return str(r).replace(',', ',\n').replace('{', '{\n').replace('[', '[\n')
+CryptoCompare:
+      - Points: {response['CryptoCompare']['Points']};
+      - Followers: {response['CryptoCompare']['Followers']};
+      - Number of Posts: {response['CryptoCompare']['Posts']};
+      - Number of Comments: {response['CryptoCompare']['Comments']};
+      - Number of Markets: {response['CryptoCompare']['PageViewsSplit']['Markets']};
+      - Number of Trades: {response['CryptoCompare']['PageViewsSplit']['Trades']};
+      - Number of Charts: {response['CryptoCompare']['PageViewsSplit']['Charts']};
+      - Number of Analysis: {response['CryptoCompare']['PageViewsSplit']['Analysis']};
+      - Number of News: {response['CryptoCompare']['PageViewsSplit']['News']};
+
+Twitter:
+      - Points: {response['Twitter']['Points']};
+      - Followers: {response['Twitter']['followers']};
+      - Statuses: {response['Twitter']['statuses']};
+      - Points: {response['Twitter']['following']};
+      
+Reddit:
+      - Points: {response['Reddit']['Points']};
+      - Posts per hour: {response['Reddit']['posts_per_hour']};
+      - Comments per hour: {response['Reddit']['comments_per_hour']};
+      - Comments per day: {response['Reddit']['comments_per_day']};
+      - Active users: {response['Reddit']['active_users']};
+      - Posts per day: {response['Reddit']['posts_per_day']};
+      - Subscribers number: {response['Reddit']['subscribers']};
+
+Facebook:
+      - Points: {response['Facebook']['Points']};
+      - Likes: {response['Facebook']['likes']};"""
