@@ -71,8 +71,7 @@ class crypto:
             'Code': r['Data']['CodeRepository']['List'],
         }
 #        return str(response).replace(',', ',\n').replace('{', '{\n').replace('}', '}\n').replace('[', '[\n')
-        return f"""
-General info: 
+        return f"""General info: 
       - Points: {response['General']['Points']};
       - Name: {response['General']['Name']};
       - Coin Name: {response['General']['CoinName']};
