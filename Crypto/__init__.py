@@ -21,14 +21,12 @@ class crypto:
             More features will be added later.
     """
 
-    def __init__(self, api_key, symbol, exchange="USD", time="1"):
+    def __init__(self, api_key, symbol, exchange="USD", time="1", code=False):
         self.sym = symbol
         self.exc = exchange
         self.api_key = api_key
         self.tmp = time
-
-    # url = f'https://min-api.cryptocompare.com/data/v2/histoday?fsym={self.sym}&tsym={self.exc}&limit={
-    # self.tmp}&api_key={self.api_key}'
+        self.code = code
 
     def price(self):
         url = f'https://min-api.cryptocompare.com/data/price?fsym={self.sym}&tsyms={self.exc}'
@@ -50,8 +48,6 @@ class crypto:
             'CoinInfoURL': r['Data'][self.sym]['CoinInfo']['Url'],
             'RewardForEveryBlock': (r['Data'][self.sym]['CoinInfo']['BlockReward'], self.sym),
         }
-#        return str(r).replace(',', ',\n').replace('{', '{\n').replace('}', '}\n').replace('[', '[\n').replace(']',
-#                                                                                                              ']\n')
         return f"""
     Coin Name: {response['CoinName']}
     Coin Full Name: {response['CoinFullName']}
@@ -62,7 +58,7 @@ class crypto:
     def social(self):
         url = f'https://min-api.cryptocompare.com/data/social/coin/latest?api_key={self.api_key}'
         r = requests.get(url).json()
-        response ={
+        response = {
             'General': r['Data']['General'],
             'CryptoCompare': r['Data']['CryptoCompare'],
             'Twitter': r['Data']['Twitter'],
@@ -70,8 +66,7 @@ class crypto:
             'Facebook': r['Data']['Facebook'],
             'Code': r['Data']['CodeRepository']['List'],
         }
-#        return str(response).replace(',', ',\n').replace('{', '{\n').replace('}', '}\n').replace('[', '[\n')
-        return f"""General info: 
+        data = f"""General info: 
       - Points: {response['General']['Points']};
       - Name: {response['General']['Name']};
       - Coin Name: {response['General']['CoinName']};
@@ -105,3 +100,9 @@ Reddit:
 Facebook:
       - Points: {response['Facebook']['Points']};
       - Likes: {response['Facebook']['likes']};"""
+
+        if self.code is True:
+            return data + (f"\n\nCode Stuff that you might want to look at (this is all in a JSON form from the raw api "
+                             f"request):\n \n{response['Code']}").replace(',', ',\n').replace('{', '{\n')
+        else:
+            return data
