@@ -1,5 +1,4 @@
 import requests
-import json
 
 
 class crypto:
@@ -10,12 +9,26 @@ class crypto:
         self.limit = limit
         self.code = code
 
+
+    def top(self):
+        url = f'https://min-api.cryptocompare.com/data/top/totaltoptiervolfull?limit={self.limit}&tsym={self.sym}'
+        r = requests.get(url).json()
+        data = [r['Data'][i]['CoinInfo'] for i in range(0, int(self.limit))]
+        response = f"""
+Top coins:
+    -Name: {data['Name']}
+    -
+"""
+        
+        return r
+
+
     def price(self):
         """
-        Price function is used to return the price of a certain coin to another kind of real life money 
+        Price function is used to return the price of a certain coin to another kind of real life money
         EX:
             BTC -- USD :is going to return the value of bitcoin in USD dollars.
-        :return: 
+        :return:
         """
         url = f'https://min-api.cryptocompare.com/data/price?fsym={self.sym}&tsyms={self.exc}'
         r = requests.get(url).json()
@@ -24,15 +37,11 @@ class crypto:
         }
         return f"""{self.sym} has a Price of {response['Price']} {self.exc}"""
 
-    def topBy24HRS(self):
-        url = f'https://min-api.cryptocompare.com/data/top/totaltoptiervolfull?limit={self.limit}&tsym={self.exc}'
-        r = requests.get(url).json()
-        return str(r).replace(',', ',\n').replace('{', '{\n').replace('[', '[\n')
     def mining_currency(self):
         """
         Mining currency function is a simple requests to the api from CryptoCompare that then returns
-        a simple and readable output for the user. 
-        :return: 
+        a simple and readable output for the user.
+        :return:
         """
         url = f'https://min-api.cryptocompare.com/data/blockchain/mining/calculator?fsyms={self.sym}&tsyms={self.exc}&api_key={self.api_key}'
         r = requests.get(url).json()
@@ -54,7 +63,7 @@ class crypto:
         The social Function is to a simple requests to the CryptoCompare API that then returns a huje amount of information
         about the social media, and of course that information has info about the crypto coin currency or something like that
         i didn't desenvolve it to much
-        :return: 
+        :return:
         """
         url = f'https://min-api.cryptocompare.com/data/social/coin/latest?api_key={self.api_key}'
         r = requests.get(url).json()
@@ -107,3 +116,8 @@ Facebook:
                 f"request):\n \n{response['Code']}").replace(',', ',\n').replace('{', '{\n')
         else:
             return data
+
+    def top(self):
+        url = f'https://min-api.cryptocompare.com/data/top/totaltoptiervolfull?limit={self.limit}&tsym={self.sym}'
+        r = requests.get(url).json()
+        return r
