@@ -9,7 +9,8 @@
     'ProofType': 'PoW',
 /#/        'Rating':
     {
-            'Weiss': {
+            'Weiss':
+            {
             'Rating': 'A-',
 //                'TechnologyAdoptionRating': 'A-',
 //                'MarketPerformanceRating': 'B+'
@@ -37,7 +38,7 @@
 //        'Algorithm': 'Ethash',
     'ProofType': 'PoW',
     'Rating': {
-    'Weiss': 
+    'Weiss':
     {
     'Rating': 'A',
 //        'TechnologyAdoptionRating': 'A-',
