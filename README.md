@@ -20,4 +20,4 @@ coin.top(low_info=True)
 ```
 
 Just use it for anything you want this is an open project and a noob project i made it just to test my skills if you have any opinion about the project
-you can email me or see <a href="https://bit.ly/3FCcwye"> my website</a> there are all projects and the website still have lots of work to with and improve.
+you can email me or see <a href="https://bit.ly/3FCcwye" target="_blank"> my website</a> there are all projects and the website still have lots of work to with and improve.
